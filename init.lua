@@ -213,7 +213,7 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { "python", "lua", "rust", "json", "yaml", "toml", "markdown", "bash" },
+      ensure_installed = { "python", "lua", "rust", "javascript", "typescript", "zig", "julia", "html", "json", "yaml", "toml", "markdown", "markdown_inline", "bash" },
       sync_install = false,
       auto_install = false,
       highlight = { enable = true },
@@ -271,6 +271,90 @@ require("lazy").setup({
       require("mini.ai").setup()
       require("mini.surround").setup()
       require("mini.pairs").setup()
+    end,
+  },
+
+  -- Zen mode
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {
+      window = {
+        width = 90,
+        options = {
+          signcolumn = "no",
+          number = false,
+          relativenumber = false,
+          cursorline = false,
+        },
+      },
+      plugins = {
+        twilight = { enabled = true },
+        gitsigns = { enabled = false },
+        tmux = { enabled = false },
+      },
+      on_open = function()
+        vim.api.nvim_set_hl(0, "Normal", { bg = "#0d0d14" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#0d0d14" })
+      end,
+      on_close = function()
+        vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+      end,
+    },
+    keys = {
+      { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
+    },
+  },
+
+  -- Twilight (dims inactive code, pairs with zen-mode)
+  {
+    "folke/twilight.nvim",
+    opts = {
+      dimming = { alpha = 0.25 },
+      context = 15,
+      treesitter = true,
+      expand = {
+        -- default twilight expansion types
+        "function",
+        "method",
+        "table",
+        "if_statement",
+        -- python
+        "function_definition",
+        "class_definition",
+        -- js/ts
+        "function_declaration",
+        "method_definition",
+        "arrow_function",
+        "class_declaration",
+        -- rust
+        "function_item",
+        "impl_item",
+        "struct_item",
+        -- zig
+        "fn_decl",
+        -- shared
+        "for_statement",
+        "while_statement",
+      },
+    },
+    config = function(_, opts)
+      require("twilight").setup(opts)
+
+      -- Twilight can query trees before they've been parsed on newer Neovim versions.
+      -- Force a parse so scope/context expansion doesn't collapse to the current line.
+      local view = require("twilight.view")
+      local original_get_node = view.get_node
+      view.get_node = function(buf, line)
+        local ok, parser = pcall(vim.treesitter.get_parser, buf)
+        if ok and parser and parser.parse then
+          pcall(function()
+            parser:parse()
+          end)
+        end
+        return original_get_node(buf, line)
+      end
     end,
   },
 
