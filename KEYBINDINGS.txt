@@ -1,0 +1,84 @@
+================================================================================
+                            NEOVIM KEYBINDINGS
+================================================================================
+
+LEADER KEY: Space
+
+--------------------------------------------------------------------------------
+FILE BROWSER (NvimTree)
+--------------------------------------------------------------------------------
+<leader>n       Toggle file tree
+<leader>m       Focus file tree
+
+--------------------------------------------------------------------------------
+TELESCOPE (Fuzzy Finder)
+--------------------------------------------------------------------------------
+<leader>t       Open telescope menu
+<leader>ff      Find files
+<leader>fg      Live grep (search in files)
+<leader>fb      Find buffers
+<leader>fh      Find help tags
+
+--------------------------------------------------------------------------------
+SPLITS
+--------------------------------------------------------------------------------
+<leader>v       Vertical split
+<leader>s       Horizontal split
+<leader>q       Close current split
+
+--------------------------------------------------------------------------------
+BUFFERS
+--------------------------------------------------------------------------------
+<leader>bd      Previous buffer
+<leader>bn      Next buffer
+<leader>bx      Close buffer
+
+--------------------------------------------------------------------------------
+SEARCH
+--------------------------------------------------------------------------------
+<leader>/       Start search (forward)
+
+--------------------------------------------------------------------------------
+GIT (Gitsigns)
+--------------------------------------------------------------------------------
+]c              Next git change (hunk)
+[c              Previous git change (hunk)
+<leader>gp      Preview git change
+<leader>gb      Git blame line
+
+--------------------------------------------------------------------------------
+LSP (Language Server)
+--------------------------------------------------------------------------------
+gD              Go to declaration
+gd              Go to definition
+K               Hover documentation
+gi              Go to implementation
+<C-k>           Signature help
+<leader>D       Go to type definition
+<leader>rn      Rename symbol
+<leader>ca      Code action
+gr              LSP references
+<leader>e       Show diagnostic float
+[d              Previous diagnostic
+]d              Next diagnostic
+<leader>q       Show diagnostics in loclist
+
+--------------------------------------------------------------------------------
+TERMINAL
+--------------------------------------------------------------------------------
+<leader>j       Toggle terminal (in any mode)
+<leader>r       Run current file with uv (Python, etc.)
+<leader>c       Run cargo project (Rust)
+
+--------------------------------------------------------------------------------
+OPEN
+--------------------------------------------------------------------------------
+<leader>o       Open file in Finder
+
+--------------------------------------------------------------------------------
+GENERAL
+--------------------------------------------------------------------------------
+Esc             Exit insert mode / Cancel
+Ctrl+C          Cancel / Exit Telescope
+
+================================================================================
