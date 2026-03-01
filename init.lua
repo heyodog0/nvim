@@ -311,7 +311,7 @@ require("lazy").setup({
   {
     "folke/twilight.nvim",
     opts = {
-      dimming = { alpha = 0.25 },
+      dimming = { alpha = 0.35 },
       context = 15,
       treesitter = true,
       expand = {
