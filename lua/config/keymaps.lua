@@ -79,7 +79,7 @@ vim.keymap.set("n", "<leader>j",  toggle_terminal, { desc = "Toggle terminal" })
 vim.keymap.set("t", "<leader>j",  toggle_terminal, { desc = "Toggle terminal from terminal mode" })
 
 -- Runner
-vim.keymap.set("n", "<leader>r",  ":belowright split | terminal uv run %<CR>i", { desc = "Run current file with uv" })
+vim.keymap.set("n", "<leader>ur", ":belowright split | terminal uv run %<CR>i", { desc = "Run current file with uv" })
 vim.keymap.set("n", "<leader>c",  ":belowright split | terminal cargo run<CR>i", { desc = "Run cargo project" })
 
 -- Misc

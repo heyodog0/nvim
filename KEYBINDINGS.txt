@@ -67,8 +67,18 @@ gr              LSP references
 TERMINAL
 --------------------------------------------------------------------------------
 <leader>j       Toggle terminal (in any mode)
-<leader>r       Run current file with uv (Python, etc.)
+<leader>ur      Run current file with uv (Python, etc.)
 <leader>c       Run cargo project (Rust)
+
+--------------------------------------------------------------------------------
+R
+--------------------------------------------------------------------------------
+<leader>rf      Start R
+<leader>rl      Send current line to R
+<leader>ra      Send current file to R
+<leader>rq      Quit R without saving
+<leader>rs      Send visual selection to R
+Enter           Send current line to R
 
 --------------------------------------------------------------------------------
 OPEN

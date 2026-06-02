@@ -6,7 +6,8 @@ return {
       ensure_installed = {
         "python", "lua", "rust", "javascript", "typescript",
         "zig", "julia", "html", "json", "yaml", "toml",
-        "markdown", "markdown_inline", "bash",
+        "markdown", "markdown_inline", "bash", "vim",
+        "r", "rnoweb", "latex", "csv",
       },
       sync_install = false,
       auto_install = false,
