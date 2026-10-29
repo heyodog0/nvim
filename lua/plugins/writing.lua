@@ -60,4 +60,20 @@ return {
       },
     },
   },
+
+  -- Rendered markdown (on by default only in the grind problem viewer; :RenderMarkdown toggle elsewhere)
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    lazy = vim.env.GRIND_VIEW == nil,
+    opts = {
+      enabled = vim.env.GRIND_VIEW ~= nil,
+      render_modes = true,
+      heading = { width = "block", left_pad = 1, right_pad = 3, border = true, border_virtual = true, sign = false },
+      code = { width = "block", left_pad = 2, right_pad = 2, min_width = 56, border = "thin", sign = false },
+      bullet = { icons = { "•", "◦", "▸", "▹" } },
+      pipe_table = { style = "full" },
+      anti_conceal = { enabled = false },  -- read-only views: keep the line under the cursor rendered too
+    },
+  },
 }

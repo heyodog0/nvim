@@ -69,7 +69,14 @@ return {
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      input = {
+        -- grind popups pass kind = "grind": center those prompts instead of covering the popup.
+        get_config = function(opts)
+          if opts.kind == "grind" then return { relative = "editor" } end
+        end,
+      },
+    },
   },
 
   -- Illuminate (highlight references)
