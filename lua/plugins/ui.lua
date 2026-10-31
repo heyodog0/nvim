@@ -85,9 +85,10 @@ return {
     event = "VeryLazy",
   },
 
-  -- Smear cursor
+  -- Smear cursor: off, Rex draws its own cursor trail now (set enabled = true to bring it back)
   {
     "sphamba/smear-cursor.nvim",
+    enabled = false,
     opts = {
       smear_between_buffers = false,
       smear_between_neighbor_lines = false,
